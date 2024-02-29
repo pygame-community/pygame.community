@@ -48,6 +48,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Enable Corepack before setting up Node
+        run: corepack enable
+
       - name: Detect package manager
         id: detect-package-manager
         run: |
