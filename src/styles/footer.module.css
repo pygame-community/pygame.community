@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(20, 20, 20);
+}
+
+.footerCol {
+  padding: 30px;
+  width: 30%;
+}
+
+.footerCol ul {
+  text-decoration: none;
+  list-style-type: none;
+}
