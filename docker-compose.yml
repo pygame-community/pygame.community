@@ -1,0 +1,25 @@
+name: pygame.community
+
+services:
+  frontend:
+    container_name: frontend
+    depends_on:
+      - backend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+        - NEXT_PUBLIC_SUPABASE_PROJECT_URL=${NEXT_PUBLIC_SUPABASE_PROJECT_URL}
+        - NEXT_PUBLIC_SUPABASE_PUBLIC_ANON_KEY=${NEXT_PUBLIC_SUPABASE_PUBLIC_ANON_KEY}
+        - NODE_ENV=${NODE_ENV:-production}
+    restart: always
+    ports:
+      - 3000:3000
+    # networks:
+    #   - appnet
+    environment:
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-https://api.pygame.community}
+      - NEXT_PUBLIC_SUPABASE_PROJECT_URL=${NEXT_PUBLIC_SUPABASE_PROJECT_URL:-https://kong.pygame.community}
+      - NEXT_PUBLIC_SUPABASE_PUBLIC_ANON_KEY=${NEXT_PUBLIC_SUPABASE_PUBLIC_ANON_KEY}
+      - NODE_ENV=${NODE_ENV:-production}

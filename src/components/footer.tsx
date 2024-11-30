@@ -1,33 +1,27 @@
-import styles from '@/styles/footer.module.css';
-import Link from 'next/link';
+import Link from "next/link";
+
+const linksMap = {
+  twitter: "https://twitter.com/pygamecommunity",
+  youtube: "https://www.youtube.com/@pygamecommunity",
+  github: "https://github.com/pygame-community",
+  discord: "https://discord.gg/pygame",
+};
 
 export default function Footer() {
   return (
-    <div className={styles.footer}>
-      <div className={styles.footerCol}>
-        <h3>Pygame Community Edition</h3>
-        <p>
-          pygame - Community Edition is a free open-source Python library for multimedia applications (like games).
-          Built on top of the excellent SDL library.
-        </p>
-      </div>
-      <div className={styles.footerCol}>
-        <h3>Social Media</h3>
-        <ul>
-          <li>
-            <Link href="https://twitter.com/pygamecommunity">Twitter</Link>
-          </li>
-          <li>
-            <Link href="https://www.youtube.com/@pygamecommunity">YouTube</Link>
-          </li>
-          <li>
-            <Link href="https://github.com/pygame-community">GitHub</Link>
-          </li>
-          <li>
-            <Link href="https://discord.gg/pygame">Discord</Link>
-          </li>
+    <footer className="flex justify-around bg-[rgb(20,20,20)]">
+      <div className="p-[30px] w-[30%]">
+        <h3 className="text-xl font-semibold mb-4">Pygame Community Edition</h3>
+        <ul className="list-none text-decoration-none">
+          {Object.entries(linksMap).map(([key, value]) => (
+            <li key={key}>
+              <Link href={value}>
+                {key.charAt(0).toUpperCase() + key.slice(1)}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
-    </div>
+    </footer>
   );
 }

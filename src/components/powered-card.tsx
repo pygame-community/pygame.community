@@ -1,11 +1,35 @@
-import styles from '@/styles/powered-card.module.css';
+/**
+ * ```css
+ * .card {
+ *   margin: 20px;
+  padding: 15px;
+}
 
-export default function PoweredCard(props: any) {
+.card:hover {
+  color: cadetblue;
+  transition: all;
+  transition-duration: 300ms;
+}
+
+.name {
+ *   font-size: 1.5rem;
+ *   font-weight: 700;
+ * }
+ * ```
+ */
+
+interface PoweredCardProps {
+  name: string;
+  author: string;
+  link: string;
+}
+
+export default function PoweredCard(props: PoweredCardProps) {
   return (
-    <div className={styles.card}>
+    <div className="m-5 p-[15px] hover:text-[cadetblue] transition-all duration-300">
       <a href={props.link}>
-        <div className={styles.name}>{props.name}</div>
-        <div className={styles.author}>{props.author}</div>
+        <div className="text-[1.5rem] font-bold">{props.name}</div>
+        <div>{props.author}</div>
       </a>
     </div>
   );

@@ -1,0 +1,4 @@
+{
+  "*/**/*.{js,json,jsx,ts,tsx,mdx}": ["prettier --check"],
+  "*/**/*.css": ["prettier --check", "stylelint"]
+}
